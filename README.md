@@ -34,11 +34,10 @@ where -n is input arg for mirc object name, and -i is the mirc image index.
 
 
 ###### Install full intepretation dataset:  
-To create the full dataset of mirc image and their interpretation as segmentation maps:
-Update the file CONSTS.py to your current folder locations, and then run:    
+To create the full dataset of mirc images and their interpretations (as segmentation maps) 
+update the file CONSTS.py to your current folder locations, and then run:    
 `$python gen_mirc_interp_dataset.py`    
-
-This should create a ~12M size folder containing mirc images as well as their segmentation maps. 
+This should create a ~12M size folder containing mirc images and their segmentation maps. 
 
 
 #### Paper
