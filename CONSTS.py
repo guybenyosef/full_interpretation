@@ -1,5 +1,5 @@
 # use abs paths:
-MAT_FILE_DIR = '/home/guy/code/fullInterpretationDNNs/interp_mat_files/'
+MAT_FILE_DIR = '/home/guy/code/fullInterpretationDNNs/interp_mat_files'
 LABEL_DIR = '/home/guy/data/mircs/labels'
 MIRC_IMG_DIR = '/home/guy/data/mircs/imgs'
 #

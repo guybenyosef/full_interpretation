@@ -1,7 +1,9 @@
-# FullInterpretationDNNs
+# Full Interpretation DNNs
 
 
-#### ‘Full interpretation of minimal images’ – human interpretation data
+### Full interpretation of minimal images – Detailed human identification of object parts
+
+#### Raw matlab data:
 
 The ‘raw_data.zip’ file contains minimal image examples (as described in Sec. 5 in the main paper), and their
 human interpretation data (referred below as annotations). The annotations for each category are stored in a
@@ -13,4 +15,38 @@ The second cell is the list of contours and the third is a list of regions. Each
 where n is the number of sampled [y,x] points in the contour. Each region is stored as a vector of [top row,
 bottom row, left column, right column].
 
-The file contains also a short MATLAB script for plotting image interpretation on screen.
+The zip file contains also a short MATLAB script for plotting interpretations.
+
+#### Python installation
+
+Extract raw_data.zip and update the file CONSTS.py to your current folder locations.
+
+###### Visualize interpretation examples:
+To visualize a mirc image and its interpretation run, e.g.,     
+`$python mat2segamp.py -n HORSE_HEAD -i 13`     
+where -n is input arg for mirc object name, and -i is the mirc image index.
+
+
+###### Install full intepretation dataset:  
+To create the full dataset of mirc image and their interpretation as segmentation maps:
+Update the file CONSTS.py to your current folder locations, and then run:    
+`$python gen_mirc_interp_dataset.py`    
+
+This should create a ~12M size folder containing mirc images as well as their segmentation maps. 
+
+
+#### Paper
+If you use this dataset please cite the following 
+[paper](https://www.researchgate.net/publication/320921911_Full_interpretation_of_minimal_images):    
+
+@article{ben2018full,   
+  title={Full interpretation of minimal images},    
+  author={Ben-Yosef, Guy and Assif, Liav and Ullman, Shimon},   
+  journal={Cognition},  
+  volume={171},  
+  pages={65--84},       
+  year={2018},  
+  publisher={Elsevier}  
+
+
+
