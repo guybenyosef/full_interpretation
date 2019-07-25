@@ -29,7 +29,7 @@ Extract raw_data.zip and update the file CONSTS.py to your current folder locati
 
 ###### Visualize interpretation examples:
 To visualize a mirc image and its interpretation run, e.g.,     
-`$python mat2segamp.py -n HORSE_HEAD -i 13`     
+`$python mat2segmap.py -n HORSE_HEAD -i 13`     
 where -n is input arg for mirc object name, and -i is the mirc image index.
 
 

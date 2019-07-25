@@ -4,7 +4,7 @@ import cv2
 import CONSTS
 import os
 
-from mat2segamp import compute_seg_map
+from mat2segmap import compute_seg_map
 
 # ===========================
 # Main
