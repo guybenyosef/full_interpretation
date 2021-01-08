@@ -6,11 +6,8 @@
 #### Data
 ###### Raw matlab data:
 
-The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) contains minimal image examples 
-(also referred as MIRCs), and their
-human interpretation data (referred below as annotations). 
-The annotations for each category are stored in a
-different MAT file. Each annotated image is represented as a MATLAB struct element with two fields:
+The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) contains minimal image examples and their human full interpretation data (referred below as annotations). 
+The raw annotations for each minimal image category are stored in a MAT file. Each annotated image is represented as a MATLAB struct element with two fields:
 ***'mirc'***, which is the MIRC image 
 and ***'human_interpretation'***, which contains annotations for the MIRC image.
 
@@ -28,8 +25,8 @@ The zip file contains also a short MATLAB script for plotting interpretations.
 
 Extract raw_data.zip and update the file CONSTS.py to your current folder locations.
 
-###### Visualize interpretation examples:
-To visualize a mirc image and its interpretation run, e.g.,     
+###### Plotting full interpretation examples:
+To visualize a minimal image and its full interpretation run, e.g.,     
 `$python mat2segmap.py -n HORSE_HEAD -i 13`     
 where -n is input arg for mirc object name, and -i is the mirc image index.
 
