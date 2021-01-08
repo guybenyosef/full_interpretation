@@ -1,4 +1,4 @@
-# Full Interpretation DNNs
+# Full Interpretation
 
 
 ### Full interpretation of minimal images – Detailed human identification of object parts
