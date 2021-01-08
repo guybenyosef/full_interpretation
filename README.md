@@ -3,7 +3,8 @@
 
 ### Full interpretation of minimal images – Detailed human identification of object parts
 
-#### Raw matlab data:
+#### Data
+###### Raw matlab data:
 
 The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) contains minimal image examples 
 (also referred as MIRCs), and their
@@ -23,7 +24,7 @@ bottom row, left column, right column]*.
 
 The zip file contains also a short MATLAB script for plotting interpretations.
 
-#### Python installation
+###### Python installation
 
 Extract raw_data.zip and update the file CONSTS.py to your current folder locations.
 
