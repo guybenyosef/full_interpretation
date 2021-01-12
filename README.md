@@ -56,6 +56,7 @@ To add more **negative** examples, you can use the random crop procedure describ
 ##### Random crop for non-class examples at minimal image style
 In your `data/` folder, create a new folder `nonfour`, with sub-folders `nonfour/train` and `nonfour/test`. 
 Then run
+#TODO Fix the sliding mode
 ```bash
 python randomCrop.py -i data/imgs/nonfour_samples/train -o data/nonfour/train
 python randomCrop.py -i data/imgs/nonfour_samples/test -o data/nonfour/test
