@@ -23,7 +23,7 @@ produced automatically by the model.
 Finally, we discuss possible extensions and implications of full interpretation to 
 difficult visual tasks, such as recognizing social interactions, 
 which are beyond the scope of current models of visual recognition.
-The complete details for this combined human and computer vision study are in this [paper](https://ge.box.com/s/5h3p6wk34jhstqkav5fbhglmovdpru6i).
+Complete details for this study combining human and computer human vision are in this [paper](https://ge.box.com/s/5h3p6wk34jhstqkav5fbhglmovdpru6i).
 
 #### Requirements
 * pytorch 1.1 or more
@@ -54,7 +54,8 @@ This data file also includes **hard negative** examples, which are visually simi
 To add more **negative** examples, you can use the random crop procedure described in the next section.  
  
 ##### Random crop for non-class examples at minimal image style
-In your `data/` folder, create a new folder `nonfour`, with sub-folders `nonfour/train` and `nonfour/test`. Then run
+In your `data/` folder, create a new folder `nonfour`, with sub-folders `nonfour/train` and `nonfour/test`. 
+Then run
 ```bash
 python randomCrop.py -i data/imgs/nonfour_samples/train -o data/nonfour/train
 python randomCrop.py -i data/imgs/nonfour_samples/test -o data/nonfour/test
@@ -64,15 +65,19 @@ To use selective search mode (recommended over sliding window) clone this repo:
 git clone https://github.com/ChenjieXu/selective_search.git
 ```
 
-Or with more parameters, e.g., 
+Run the script with more parameters, e.g., 
 ```bash
-python randomCrop.py -i /Users/gby/data/minimal_images/negatives/nonhorse_large/0/ -o /Users/gby/data/minimal_images/negtives/nonhorse/ -ns 10 -lm 400
+python randomCrop.py -i data/imgs/nonfour_samples/train/ -o data/nonfour -ns 10 -lm 400
 ```
 
 To use files from VOC dataset, e.g.,
 ```bash
 python randomCrop.py -i voc_horse -o /shared-data5/guy/data/minimal/negatives/nonhorseL -ns 1 -lm 100000000
 ```
+
+#### Full interpretation models
+##### Original matlab-based model:
+TBD
 
 #### Paper
 If you use the code or data in this repo please cite the following 
