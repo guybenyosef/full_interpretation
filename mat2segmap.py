@@ -17,6 +17,8 @@ def compute_seg_map(resized_mirc_img, interp):
     contours = interp[0][1]
     regions = interp[0][2] # ignore
 
+    SCALE = CONSTS.INTERP_MAP_SIZE / 108
+
     if len(points):
         contours = np.concatenate((contours, points), axis=1)
 
@@ -26,8 +28,8 @@ def compute_seg_map(resized_mirc_img, interp):
     for cntr_indx in range(len(contours[0])):
         c = contours[0][cntr_indx]
         for k in range(len(c)):
-            row = int(c[k, 0] - 1)
-            col = int(c[k, 1] - 1)
+            row = int((c[k, 0] - 1) * SCALE)
+            col = int((c[k, 1] - 1) * SCALE)
             if row < CONSTS.INTERP_MAP_SIZE and col < CONSTS.INTERP_MAP_SIZE:
                 #print("r: %d,  c: %d" % (row, col))
                 canvas[row, col] = cntr_indx + 1
