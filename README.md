@@ -30,6 +30,8 @@ The complete details for this study are in this [paper](https://ge.box.com/s/5h3
 * sklearn
 * scikit-image
 * tqdm
+* tensorboard
+* sacred
 
 #### Data
 ##### Raw matlab data:
