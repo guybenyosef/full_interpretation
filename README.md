@@ -62,35 +62,37 @@ To add more **negative** examples, you can use the random crop procedure describ
 ##### Random crop for non-class examples at minimal image style
 In your `data/` folder, create a new folder `nonfour`, with sub-folders `nonfour/train` and `nonfour/test`. 
 Then run
-#TODO Fix the sliding mode
+
 ```bash
-python randomCrop.py -i data/imgs/nonfour_samples/train -o data/nonfour/train
-python randomCrop.py -i data/imgs/nonfour_samples/test -o data/nonfour/test
+python randomCrop.py -i data/imgs/nonfour_samples/train -o data/nonfour/train --mode sliding
+python randomCrop.py -i data/imgs/nonfour_samples/test -o data/nonfour/test --mode sliding
 ```
 To use selective search mode (recommended over sliding window) clone this repo:
 ```bash
 git clone https://github.com/ChenjieXu/selective_search.git
 ```
+then use `--mode selective` rahter than `--mode sliding`.
 
-Run the script with more parameters, e.g., 
+You can can also run the script with more parameters, e.g., 
 ```bash
-python randomCrop.py -i data/imgs/nonfour_samples/train/ -o data/nonfour -ns 10 -lm 400
+python randomCrop.py -i data/imgs/nonfour_samples/train/ -o data/nonfour -ns 10 -lm 400 --mode selective
 ```
 
-To use files from VOC dataset, e.g.,
+To use files from VOC dataset, download the VOC dataset from http://host.robots.ox.ac.uk/pascal/VOC/voc2012/, 
+then change paths in `CONSTS.py` and run e.g.,
 ```bash
-python randomCrop.py -i voc_horse -o /shared-data5/guy/data/minimal/negatives/nonhorseL -ns 1 -lm 100000000
+python randomCrop.py -i voc_horse -o  data/nonfour -ns 1 -lm 100000000 --mode selective
 ```
 
-#### Full interpretation models
+#### Interpretation models
 ##### Original matlab-based model:
 TBD
 
-##### Python-based model:
-* 'interp' -- UNet interpretation (without classification)
-* 'dual' -- UNet interpretation + Bottom-Up classification 
-* 'dualtd' -- UNet interpretation + Top-Down classification
-* 'dualmulti' -- Multiple streams (default=2) of UNet interpretation + classification
+##### Python-based models:
+* 'interp' -- UNet-based interpretation (without classification)
+* 'dual' -- UNet-based interpretation + Bottom-Up classification 
+* 'dualtd' -- UNet-based interpretation + Top-Down classification
+* 'dualmulti' -- Multiple streams (default=2) of UNet-based interpretation + classification
 
 ##### Train
 Training a classification model:
@@ -107,15 +109,15 @@ python train.py with interp dataset=HorseHead
 ```
 Training the dual model:
 ```bash
-python train.py with dual dataset=HorseHead
+python train.py with dual equal dataset=HorseHead
 ```
 Training the dual top-down model:
 ```bash
-python train.py with dualtd dataset=HorseHead loss_ratio=[1.0,1.0] subset=10000 epochs=1000
+python train.py with dualtd equal dataset=HorseHead loss_ratio=[1.0,1.0] subset=10000 epochs=1000
 ```
 Training the multi-steam model:
-```buildoutcfg
-python train.py with dualmulti dataset=HorseHead
+```basg
+python train.py with dualmulti equal dataset=HorseHead
 ```
 
 Number of negative examples used for training: 14,061,063
@@ -128,32 +130,6 @@ or with plots:
 ```bash
 $python eval.py with weights=storage_unix/logs/HorseHead/RecUNetMirc/\[1.0\,\ 100.0\]/6/weights_HorseHead_RecUNetMirc_best.pth dataset=HorseHead plot
 ```
-##### Experiments for NIPS 2020 paper:
-All experiments for the paper were based on `equal` and `veryverylong` flags, and on the `horse-head` dataset, namely:   
-* For the dual models:
-```bash
-python train.py with dualtd equal veryverylong
-```
-```bash
-python train.py with dualmulti equal veryverylong
-```
-(to test models with different loss ratios `boost` and `superboost` flags were added)
-
-* For baseline classification:
-```bash
-python train.py with vanilla equal veryverylong
-```
-```bash
-python train.py with vanilla resnet50 equal veryverylong
-```
-* For baseline interpretation:
-```bash
-python train.py with interp deeplab equal veryverylong
-```
-```bash
-python train.py with interp fcn equal veryverylong
-```
-
 
 #### Papers
 If you use the code or data in this repo please cite the following 
