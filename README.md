@@ -42,7 +42,7 @@ The human full interpretation labels include the following parts:
 ![15](figures/interpretation_data1.png)
 And are represented by a set of contours, points, and bboxes, e.g., 
 
-![1](figures/interpretation_data2.png)
+![0.5](figures/interpretation_data2.png)
 
 ##### Preprocessed contour data, ready for python experiments:
 Download this [tar file](https://ge.box.com/s/l7v9iiwgag0hv9nxh9oblblgtbiftbfr)
