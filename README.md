@@ -108,6 +108,6 @@ Other relevant papers include:
 * G. Ben-Yosef and S. Ullman, Image interpretation above and below the object level. Journal of The Royal Society Interface Focus, 8(4), 20180020, 2018.
 * S. Srivastava, G. Ben-Yosef*, X. Boix*, Minimal images in deep neural networks: Fragile Object Recognition in Natural Images. International Conference on Learning Representations, 2019. (* equal contribution)
 
-#### Minimal Videos repo
+#### Minimal Videos data and code
 Related work on interpretation and action recognition in minimal video configurations is in 
 this [github repo](https://github.com/guybenyosef/introducing_minimal_videos).
