@@ -37,21 +37,39 @@ def write_window_to_file(window, minimalImage_size, detection_indx, output_path,
         print("Detected windows.. {}".format(detection_indx))
 
 
-def selective_search_detection(input_examples, minimalImage_size, output_path, limit=np.Inf):
+def sliding_window_boxes(image, minimalImage_size, limit=np.inf):
+    boxes = []
+    for window_size in range(minimalImage_size, 200, 10):
+        for stepSize in range(minimalImage_size, minimalImage_size * 2, 5):
+            (w_width, w_height) = (window_size, window_size)  # window size
+            for x in range(0, image.shape[1] - w_width, stepSize):
+                for y in range(0, image.shape[0] - w_height, stepSize):
+                    if len(boxes) < limit:
+                        boxes.append([x, y, x + w_width, y + w_height])  # x1, y1, x2, y2
+    return boxes
+
+def do_detection(mode, input_examples, minimalImage_size, output_path, limit=np.Inf):
 
     detection_indx = 0
     chunck_size = min(1000, limit // 1000)
     if chunck_size == 0:
         chunck_size = limit
 
+    print("Starting {} search..".format(mode))
+
     for img_path in input_examples:
         if os.path.exists(img_path):
-            # read the image and define the stepSize and window size (width,height)
             print("processing {}".format(img_path))
-            image = cv2.imread(img_path)  # your image path
+            image = cv2.imread(img_path)
             raw_name = os.path.splitext(os.path.basename(img_path))[0]
 
-            boxes = selective_search.selective_search(image, mode='fast')
+            if mode == 'selective':
+                boxes = selective_search.selective_search(image, mode='fast')
+            elif mode == 'sliding':
+                boxes = sliding_window_boxes(image, minimalImage_size, limit=np.inf)
+            else:
+                os.error("incorrect mode name")
+
             random.shuffle(boxes)
             if limit < 10001:
                 limit_per_image = 100
@@ -59,53 +77,19 @@ def selective_search_detection(input_examples, minimalImage_size, output_path, l
 
             for x1, y1, x2, y2 in boxes:
                 window = image[x1:x2, y1:y2, :]
-
                 if window.size > 0:
                     chunck_indx = detection_indx // chunck_size
                     write_window_to_file(window, minimalImage_size, detection_indx, os.path.join(output_path, str(chunck_indx)), raw_name)
                     detection_indx += 1
                     if detection_indx == limit:
                         return
-                # draw window on image:
+
+                # [Optional:] Draw window on image:
                 # cv2.rectangle(tmp, (x, y), (x + w_width, y + w_height), (255, 0, 0), 2)  # draw rectangle on image
                 # plt.imshow(np.array(tmp).astype('uint8'))
                 # plt.show()
 
     print("Total {} detected windows were saved to {}!".format(detection_indx, output_path))
-
-
-def sliding_window_detection(input_examples, minimalImage_size, output_path, limit):
-
-    detection_indx = 0
-
-    for img_path in input_examples:
-        # read the image and define the stepSize and window size (width,height)
-        image = cv2.imread(img_path)  # your image path
-
-        for window_size in range(minimalImage_size, 200, 10):
-
-            for stepSize in range(minimalImage_size, minimalImage_size*2, 5):
-
-                (w_width, w_height) = (window_size, window_size)  # window size
-
-                for x in range(0, image.shape[1] - w_width, stepSize):
-
-                    for y in range(0, image.shape[0] - w_height, stepSize):
-
-                        window = image[x:x + w_width, y:y + w_height, :]
-
-                        # classify content of the window with your classifier and
-                        if window.size > 0:
-                            write_window_to_file(window, minimalImage_size, detection_indx)
-                            detection_indx += 1
-                            if detection_indx > limit:
-                                return
-                        # draw window on image
-                        # cv2.rectangle(tmp, (x, y), (x + w_width, y + w_height), (255, 0, 0), 2)  # draw rectangle on image
-                        # plt.imshow(np.array(tmp).astype('uint8'))
-                        # plt.show()
-    print("Total {} detected windows were saved to {}!".format(detection_indx, output_path))
-
 
 def gen_data(mode, input_filenames, output_path, num_sets, minimalImage_size, limit):
 
@@ -120,15 +104,9 @@ def gen_data(mode, input_filenames, output_path, num_sets, minimalImage_size, li
         if not os.path.exists(set_output_path):
             os.makedirs(set_output_path)
 
-        files_subset = input_filenames[set_indx * set_size : (set_indx + 1) * set_size]
+        files_subset = input_filenames[set_indx * set_size: (set_indx + 1) * set_size]
 
-        if mode == 'selective':
-            selective_search_detection(files_subset, minimalImage_size, set_output_path, limit)
-        elif mode == 'sliding':
-            sliding_window_detection(files_subset, minimalImage_size, set_output_path, limit)
-        else:
-            os.error("incorrect mode name")
-
+        do_detection(mode, files_subset, minimalImage_size, set_output_path, limit)
 
 def get_voc_classification_filenames(voc_folder_path, category='horse'):
 
@@ -161,18 +139,16 @@ if __name__ == '__main__':
     output_path = args.output_path
 
     if input_path == 'voc_horse':
-        # get all nonhorse voc files:
+        # get all non-horse voc files:
         input_filenames = get_voc_classification_filenames(voc_folder_path=CONSTS.VOC_DIR, category='horse')
     elif input_path == 'voc_mis':
-        # get all nonhorse voc files:
+        # get all non-person voc files:
         input_filenames = get_voc_classification_filenames(voc_folder_path=CONSTS.VOC_DIR, category='person')
     else:
         input_filenames = make_dataset(dir=input_path, ext='jpg')
 
     gen_data(mode=args.mode, input_filenames=input_filenames, output_path=output_path,
             num_sets=args.num_sets, minimalImage_size=args.minimalImage_size, limit=args.limit)
-
-
 
 
 
