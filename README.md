@@ -86,6 +86,75 @@ python randomCrop.py -i voc_horse -o /shared-data5/guy/data/minimal/negatives/no
 ##### Original matlab-based model:
 TBD
 
+##### Python-based model:
+* 'interp' -- UNet interpretation (without classification)
+* 'dual' -- UNet interpretation + Bottom-Up classification 
+* 'dualtd' -- UNet interpretation + Top-Down classification
+* 'dualmulti' -- Multiple streams (default=2) of UNet interpretation + classification
+
+##### Train
+Training a classification model:
+```bash
+python train.py with vanilla dataset=HorseHead
+```
+Train a segmentation model:
+```bash
+python train.py with mis interp deeplab veryverylong
+```
+Training the interpretation-only model:
+```bash
+python train.py with interp dataset=HorseHead
+```
+Training the dual model:
+```bash
+python train.py with dual dataset=HorseHead
+```
+Training the dual top-down model:
+```bash
+python train.py with dualtd dataset=HorseHead loss_ratio=[1.0,1.0] subset=10000 epochs=1000
+```
+Training the multi-steam model:
+```buildoutcfg
+python train.py with dualmulti dataset=HorseHead
+```
+
+Number of negative examples used for training: 14,061,063
+
+##### Eval
+```bash
+$python eval.py with weights=storage_unix/logs/HorseHead/RecUNetMirc/\[1.0\,\ 100.0\]/6/weights_HorseHead_RecUNetMirc_best.pth dataset=HorseHead
+```
+or with plots:
+```bash
+$python eval.py with weights=storage_unix/logs/HorseHead/RecUNetMirc/\[1.0\,\ 100.0\]/6/weights_HorseHead_RecUNetMirc_best.pth dataset=HorseHead plot
+```
+##### Experiments for NIPS 2020 paper:
+All experiments for the paper were based on `equal` and `veryverylong` flags, and on the `horse-head` dataset, namely:   
+* For the dual models:
+```bash
+python train.py with dualtd equal veryverylong
+```
+```bash
+python train.py with dualmulti equal veryverylong
+```
+(to test models with different loss ratios `boost` and `superboost` flags were added)
+
+* For baseline classification:
+```bash
+python train.py with vanilla equal veryverylong
+```
+```bash
+python train.py with vanilla resnet50 equal veryverylong
+```
+* For baseline interpretation:
+```bash
+python train.py with interp deeplab equal veryverylong
+```
+```bash
+python train.py with interp fcn equal veryverylong
+```
+
+
 #### Papers
 If you use the code or data in this repo please cite the following 
 [paper](https://www.researchgate.net/publication/320921911_Full_interpretation_of_minimal_images):    
