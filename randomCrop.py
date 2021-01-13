@@ -4,7 +4,6 @@ import sys
 import argparse
 import CONSTS
 import random
-import glob
 import numpy as np
 
 from utils.data_utils import make_dataset, make_dataset_txtfile
@@ -35,7 +34,6 @@ def write_window_to_file(window, minimalImage_size, detection_indx, output_path,
     # print msg:
     if detection_indx > 0 and detection_indx % 1000 == 0:
         print("Detected windows.. {}".format(detection_indx))
-
 
 def sliding_window_boxes(image, minimalImage_size, limit=np.inf):
     boxes = []
@@ -127,7 +125,6 @@ def get_voc_classification_filenames(voc_folder_path, category='horse'):
 
     return all_but_category_voc_classification_names
 
-
 # ===========================
 # Main
 # ===========================
@@ -153,7 +150,7 @@ if __name__ == '__main__':
 
 
 
-    # # Filter box proposals
+    # [Filter box proposals with the selective search code]
     # # Feel free to change parameters
     # boxes_filter = selective_search.box_filter(boxes, min_size=20, topN=80)
     #
