@@ -23,7 +23,7 @@ produced automatically by the model.
 Finally, we discuss possible extensions and implications of full interpretation to 
 difficult visual tasks, such as recognizing social interactions, 
 which are beyond the scope of current models of visual recognition.
-Complete details for this study combining human and computer human vision are in this [paper](https://ge.box.com/s/5h3p6wk34jhstqkav5fbhglmovdpru6i).
+The complete details for this study are in this [paper](https://ge.box.com/s/5h3p6wk34jhstqkav5fbhglmovdpru6i).
 
 #### Requirements
 * pytorch 1.1 or more
@@ -80,7 +80,7 @@ python randomCrop.py -i voc_horse -o /shared-data5/guy/data/minimal/negatives/no
 ##### Original matlab-based model:
 TBD
 
-#### Paper
+#### Papers
 If you use the code or data in this repo please cite the following 
 [paper](https://www.researchgate.net/publication/320921911_Full_interpretation_of_minimal_images):    
 
@@ -93,5 +93,14 @@ If you use the code or data in this repo please cite the following
   year={2018},  
   publisher={Elsevier}  
 
+Other relevant papers include: 
+* G. Ben-Yosef, L. Assif, D. Harari, and S. Ullman, A model for full local image interpretation, in the Proceedings of the 37th Annual Meeting of the Cognitive Science Society, 2015.
+* S. Ullman, L. Assif, E. Fetaya, D. Harari, Atoms of recognition in human and computer vision, in Proceedings of the National Academy of Sciences, 2016. 113, 2016.
+* G. Ben-Yosef, L. Assif, and S. Ullman, Structured learning and detailed interpretation of minimal object images. In Workshop on Mutual Benefits of Cognitive and Computer Vision, the International Conference on Computer Vision, 2017.
+* G. Ben-Yosef, A. Yachin, and S. Ullman, A model for interpreting social interactions in local image regions in AAAI spring symposium on Science of Intelligence: Computational Principles of Natural and Artificial Intelligence, 2017.
+* G. Ben-Yosef and S. Ullman, Image interpretation above and below the object level. Journal of The Royal Society Interface Focus, 8(4), 20180020, 2018.
+* S. Srivastava, G. Ben-Yosef*, X. Boix*, Minimal images in deep neural networks: Fragile Object Recognition in Natural Images. International Conference on Learning Representations, 2019. (* equal contribution)
 
-
+#### Minimal Videos repo
+Related work on interpretation and action recognition in minimal video configurations is in 
+this github [repo](https://github.com/guybenyosef/introducing_minimal_videos)
