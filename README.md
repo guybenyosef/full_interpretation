@@ -103,4 +103,4 @@ Other relevant papers include:
 
 #### Minimal Videos repo
 Related work on interpretation and action recognition in minimal video configurations is in 
-this github [repo](https://github.com/guybenyosef/introducing_minimal_videos)
+this [github repo](https://github.com/guybenyosef/introducing_minimal_videos).
