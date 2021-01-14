@@ -43,8 +43,8 @@ The human full interpretation labels include the following parts:
 represented by a set of contours, points, and bboxes, e.g.,  
 ![1](figures/interpretation_data2.png)
 
-##### Preprocessed contour data, ready for python experiments:
-Download this [tar file](https://ge.box.com/s/l7v9iiwgag0hv9nxh9oblblgtbiftbfr)
+##### Preprocessed data, ready for python experiments:
+Download this [tar file](https://www.dropbox.com/s/m6att61rzrb8le1/minimal_images_for_github.tar.gz?dl=0)
  (~80M size) and extract it into your `data/` folder. Update DATA_DIR in your `CONSTS.py` accordingly.
  The folder contains both images and contour annotation maps. A summary of the data follows:  
 
