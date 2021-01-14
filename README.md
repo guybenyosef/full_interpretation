@@ -44,7 +44,7 @@ represented by a set of contours, points, and bboxes, e.g.,
 ![1](figures/interpretation_data2.png)
 
 ##### Preprocessed data, ready for python experiments:
-Download this [tar file](https://www.dropbox.com/s/m6att61rzrb8le1/minimal_images_for_github.tar.gz?dl=0)
+Download this [tar file](https://www.dropbox.com/s/xmratas7j3ltixg/minimal_images_for_github.tar.gz?dl=0)
  (~80M size) and extract it into your `data/` folder. Update DATA_DIR in your `CONSTS.py` accordingly.
  The folder contains both images and contour annotation maps. A summary of the data follows:  
 
@@ -64,8 +64,7 @@ In your `data/` folder, create a new folder `nonfour`, with sub-folders `nonfour
 Then run
 
 ```bash
-python randomCrop.py -i data/imgs/nonfour_samples/train -o data/nonfour/train --mode sliding
-python randomCrop.py -i data/imgs/nonfour_samples/test -o data/nonfour/test --mode sliding
+python randomCrop.py -i data/imgs/negatives/nonfour_samples/train -o nonfour/train --mode sliding
 ```
 To use selective search mode (recommended over sliding window) clone this repo:
 ```bash
@@ -75,13 +74,13 @@ then use `--mode selective` rahter than `--mode sliding`.
 
 You can can also run the script with more parameters, e.g., 
 ```bash
-python randomCrop.py -i data/imgs/nonfour_samples/train/ -o data/nonfour -ns 10 -lm 400 --mode selective
+python randomCrop.py -i data/imgs/negatives/nonfour_samples/train/ -o nonfour/train -ns 10 -lm 400 --mode selective
 ```
 
 To use files from VOC dataset, download the VOC dataset from http://host.robots.ox.ac.uk/pascal/VOC/voc2012/, 
 then change paths in `CONSTS.py` and run e.g.,
 ```bash
-python randomCrop.py -i voc_horse -o  data/nonfour -ns 1 -lm 100000000 --mode selective
+python randomCrop.py -i voc_horse -o  nonfour -ns 1 -lm 100000000 --mode selective
 ```
 
 #### Interpretation models
@@ -120,7 +119,7 @@ Training the multi-steam model:
 python train.py with dualmulti equal dataset=HorseHead
 ```
 
-Number of negative examples used for training: 14,061,063
+Experiments include 14,061,063 negative examples used for training.
 
 ##### Eval
 ```bash
@@ -151,6 +150,8 @@ Other relevant papers include:
 * G. Ben-Yosef, A. Yachin, and S. Ullman, A model for interpreting social interactions in local image regions in AAAI spring symposium on Science of Intelligence: Computational Principles of Natural and Artificial Intelligence, 2017.
 * G. Ben-Yosef and S. Ullman, Image interpretation above and below the object level. Journal of The Royal Society Interface Focus, 8(4), 20180020, 2018.
 * S. Srivastava, G. Ben-Yosef*, X. Boix*, Minimal images in deep neural networks: Fragile Object Recognition in Natural Images. International Conference on Learning Representations, 2019. (* equal contribution)
+* Y. Holzinger, S. Ullman, D. Harari, M. Behrmann , G. Avidan, Minimal Recognizable Configurations Elicit Category-selective Responses in Higher Order Visual Cortex, Journal of Cognitive Neuroscience, 2019, 31(9): 1354-1367.
+* H. Benoni, D. Harari and S. Ullman, What takes the brain so long: Object recognition at the level of minimal images develops for up to seconds of presentation time. 2020, arXiv:2006.05249, q-bio.NC.
 
 #### Minimal Videos data and code
 Related work on interpretation and action recognition in minimal video configurations is in 
