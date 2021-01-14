@@ -35,10 +35,14 @@ The complete details for this study are in this [paper](https://ge.box.com/s/5h3
 
 #### Data
 ##### Raw matlab data:
-The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) contains minimal image examples and their human full interpretation data (referred below as annotations). 
-The raw annotations for each minimal image category are stored in a MAT file, which contains both the minimal images and the human 'full interpretation' for it.
+The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) 
+contains minimal image examples and their human full interpretation data (referred below as annotations), 
+which were developed and used for the experiments in the [paper](https://ge.box.com/s/5h3p6wk34jhstqkav5fbhglmovdpru6i) above. 
+The raw annotations for each minimal image category are stored in a MAT file, 
+which contains both the minimal images and the human 'full interpretation' for it.
 More details are in this [page](raw_data/raw_data_python.md). 
-The human full interpretation labels include the following parts:
+
+The human full interpretation labels include the following object categories and their internal parts:
 ![15](figures/interpretation_data1.png)
 represented by a set of contours, points, and bboxes, e.g.,  
 ![1](figures/interpretation_data2.png)
