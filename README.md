@@ -49,7 +49,7 @@ represented by a set of contours, points, and bboxes, e.g.,
 
 ##### Preprocessed data, ready for python experiments:
 Download this [tar file](https://www.dropbox.com/s/xmratas7j3ltixg/minimal_images_for_github.tar.gz?dl=0)
- (~80M size) and extract it into your `data/` folder. Update DATA_DIR in your `CONSTS.py` accordingly.
+ (~21M size) and extract it into your `data/` folder. Update DATA_DIR in your `CONSTS.py` accordingly.
  The folder contains both images and contour annotation maps. A summary of the data follows:  
 
 | Class index   | Minimal Image Type | Pixel Size | # annotated images  | Examples  | Hard negative examples |
