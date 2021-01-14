@@ -144,14 +144,14 @@ If you use the code or data in this repo please cite the following
   publisher={Elsevier}  
 
 Other relevant papers include: 
-* G. Ben-Yosef, L. Assif, D. Harari, and S. Ullman, A model for full local image interpretation, in the Proceedings of the 37th Annual Meeting of the Cognitive Science Society, 2015.
-* S. Ullman, L. Assif, E. Fetaya, D. Harari, Atoms of recognition in human and computer vision, in Proceedings of the National Academy of Sciences, 2016. 113, 2016.
-* G. Ben-Yosef, L. Assif, and S. Ullman, Structured learning and detailed interpretation of minimal object images. In Workshop on Mutual Benefits of Cognitive and Computer Vision, the International Conference on Computer Vision, 2017.
-* G. Ben-Yosef, A. Yachin, and S. Ullman, A model for interpreting social interactions in local image regions in AAAI spring symposium on Science of Intelligence: Computational Principles of Natural and Artificial Intelligence, 2017.
+* G. Ben-Yosef, L. Assif, D. Harari, and S. Ullman, A model for full local image interpretation. Proceedings of the 37th Annual Meeting of the Cognitive Science Society, 2015.
+* S. Ullman, L. Assif, E. Fetaya, D. Harari, Atoms of recognition in human and computer vision. Proceedings of the National Academy of Sciences, 2016. 113, 2016.
+* G. Ben-Yosef, L. Assif, and S. Ullman, Structured learning and detailed interpretation of minimal object images. Workshop on Mutual Benefits of Cognitive and Computer Vision, the International Conference on Computer Vision, 2017.
+* G. Ben-Yosef, A. Yachin, and S. Ullman, A model for interpreting social interactions in local image regions. AAAI spring symposium on Science of Intelligence: Computational Principles of Natural and Artificial Intelligence, 2017.
 * G. Ben-Yosef and S. Ullman, Image interpretation above and below the object level. Journal of The Royal Society Interface Focus, 8(4), 20180020, 2018.
 * S. Srivastava, G. Ben-Yosef*, X. Boix*, Minimal images in deep neural networks: Fragile Object Recognition in Natural Images. International Conference on Learning Representations, 2019. (* equal contribution)
-* Y. Holzinger, S. Ullman, D. Harari, M. Behrmann , G. Avidan, Minimal Recognizable Configurations Elicit Category-selective Responses in Higher Order Visual Cortex, Journal of Cognitive Neuroscience, 2019, 31(9): 1354-1367.
-* H. Benoni, D. Harari and S. Ullman, What takes the brain so long: Object recognition at the level of minimal images develops for up to seconds of presentation time. 2020, arXiv:2006.05249, q-bio.NC.
+* Y. Holzinger, S. Ullman, D. Harari, M. Behrmann , G. Avidan, Minimal Recognizable Configurations Elicit Category-selective Responses in Higher Order Visual Cortex. Journal of Cognitive Neuroscience, 2019, 31(9): 1354-1367.
+* H. Benoni, D. Harari and S. Ullman, What takes the brain so long: Object recognition at the level of minimal images develops for up to seconds of presentation time. ArXiv:2006.05249, 2020, q-bio.NC.
 
 #### Minimal Videos data and code
 Related work on interpretation and action recognition in minimal video configurations is in 
