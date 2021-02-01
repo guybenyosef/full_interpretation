@@ -23,7 +23,7 @@ produced automatically by the model.
 Finally, we discuss possible extensions and implications of full interpretation to 
 difficult visual tasks, such as recognizing social interactions, 
 which are beyond the scope of current models of visual recognition.
-The complete details for this study are in this [paper](https://www.sciencedirect.com/science/article/pii/S001002771730269X).
+The complete details for this study are in this [paper](https://www.researchgate.net/publication/320921911_Full_interpretation_of_minimal_images).
 
 #### Requirements
 * pytorch 1.1 or more
@@ -37,7 +37,7 @@ The complete details for this study are in this [paper](https://www.sciencedirec
 ##### Raw matlab data:
 The folder [raw_data](https://www.dropbox.com/sh/faktmyhspckyjbj/AAB-xPG_dVJKWScWDaAr6WaNa?dl=0) 
 contains minimal image examples and their human full interpretation data (referred below as annotations), 
-which were developed and used for the experiments in the [paper](https://www.sciencedirect.com/science/article/pii/S001002771730269X) above. 
+which were developed and used for the experiments in the [paper](https://www.researchgate.net/publication/320921911_Full_interpretation_of_minimal_images) above. 
 The raw annotations for each minimal image category are stored in a MAT file, 
 which contains both the minimal images and the human 'full interpretation' for it.
 More details are in this [page](raw_data/raw_data_python.md). 
